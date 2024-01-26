@@ -1,0 +1,90 @@
+import { Schema, model } from "mongoose";
+import { type } from "os";
+const userSchema = new Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      enum: [
+        "Avon",
+        "Bedfordshire",
+        "Berkshire",
+        "Buckinghamshire",
+        "Cambridgeshire",
+        "Cheshire",
+        "Cleveland",
+        "Cornwall",
+        "Cumbria",
+        "Derbyshire",
+        "Devon",
+        "Dorset",
+        "Durham",
+        "East-Sussex",
+        "Essex",
+        "Gloucestershire",
+        "Hampshire",
+        "Herefordshire",
+        "Hertfordshire",
+        "Isle-of-Wight",
+        "Kent",
+        "Lancashire",
+        "Leicestershire",
+        "Lincolnshire",
+        "London",
+        "Merseyside",
+        "Middlesex",
+        "Norfolk",
+        "Northamptonshire",
+        "Northumberland",
+        "North-Humberside",
+        "North-Yorkshire",
+        "Nottinghamshire",
+        "Oxfordshire",
+        "Rutland",
+        "Shropshire",
+        "Somerset",
+        "South-Humberside",
+        "South-Yorkshire",
+        "Staffordshire",
+        "Suffolk",
+        "Surrey",
+        "Tyne-and-Wear",
+        "Warwickshire",
+        "West-Midlands",
+        "West-Sussex",
+        "West-Yorkshire",
+        "Wiltshire",
+        "Worcestershire",
+      ],
+      required: true,
+    },
+    roles: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
+
+const users = model("Users", userSchema);
+
+export default users;

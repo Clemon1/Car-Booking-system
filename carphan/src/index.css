@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.hometext {
+  color: #00e995;
+}
+#list * {
+  background: #001a2c;
+  color: #ffffff;
+  border-radius: 12px;
+}
